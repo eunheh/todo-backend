@@ -38,10 +38,6 @@ class TaskController {
     response.json(updateTask)
   }
 
-  * show (request, response) {
-
-  }
-
 }
 
 module.exports = TaskController
