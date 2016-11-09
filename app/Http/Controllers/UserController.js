@@ -13,7 +13,7 @@ class UserController {
   }
 
   * show (request, response) {
-    let userId = request.peram('id')
+    let userId = request.param('id')
     //request.peram to look stuff up
     let user = yield User.find(userId)
 

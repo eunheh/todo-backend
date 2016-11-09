@@ -1,27 +1,23 @@
 'use strict'
 
-const TodoList = use("App/Model/TodoList")
+const List = use("App/Model/List")
 
 class TodoListController {
 
-  * example (request, response) {
-    response.json({ message: "Hello World" })
-  }
-
   * create (request, response) {
-    let userId = request.peram('id')
+    let userId = request.param('id')
     let data = request.only('name')
     data.user_id = userId
 
-    let todoList = yield TodoList.create(data)
+    let todoList = yield List.create(data)
     response.status(201).json(todoList)
   }
 
   * index (request, response) {
-    let userId = request.peram('id')
-    let lists = yield TodoList.query().where('user_id, userId')
+    let userId = request.param('id')
+    let getList = yield List.query().where('user_id', userId)
 
-    response.json(lists)
+    response.json(getList)
   }
 
 }
